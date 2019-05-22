@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <nav class='navbar navbar-default navbar-inverse'>
+      <div class="container">
+          <div class="navbar-header">
+            <a class='navbar-brand' href="#">STAREXAM</a>
+          </div>
+
+          <ul class='nav navbar-nav'>
+            <li><a href="/java">Java Exam</a></li>
+            <li><a href="/python">Python Exam</a></li>
+            <li><a href="/aptitude">Aptitude Exam</a></li>
+          </ul>
+
+          <ul class='nav navbar-nav navbar-right'>
+            {% if user.is_authenticated %}
+             <li> <a href="/accounts/logout">Logout</a> </li>
+             {% else %}
+             <li> <a href="/signup">Signup</a> </li>
+             <li> <a href="/accounts/login">Login</a> </li>
+             {% endif %}
+          </ul>
+
+      </div>
+    </nav>
+          {% block body_block %}
+
+
+          {% endblock %}
+          <!-- when not login then show Signup and login option and when login then show only
+             logout option*/ -->
+  </body>
+</html>
